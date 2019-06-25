@@ -3,7 +3,7 @@ Kip
 
 Get information from ip address
 
-```
+```js
 const IpInfo = require('kip')
 
 const ip = '5.51.43.146'
