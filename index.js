@@ -1,12 +1,9 @@
-const Fs = require('fs')
+const Geoip = require('geoip-lite')
+const ToCurrency = require('./toCurrency')
 
-const countryToCurrency = require('./countryToCurrency.json')
+const ip = ip=>{
+  const geo = Geoip.lookup(ip)
+  const currency = ToCurrency[geo.country]
+  return Object.assign(geo,ToCurrency[geo.country]) }
 
-const missed = Object.keys(countryToCurrency)
-  .filter(k=>!countryToCurrency[k].symbol)
-  .map(k=>countryToCurrency[k].currencyCode)
-  .reduce((o,e)=>{
-    if(o.indexOf(e)==-1) o.push(e)
-    return o },[])
-
-Fs.writeFileSync('./missedCurrency',missed.join('\n'))
+module.exports = ip
