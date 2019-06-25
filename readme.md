@@ -6,7 +6,7 @@ Get information from ip address
 ```
 const IpInfo = require('kip')
 
-const ip = "5.51.43.146"
+const ip = '5.51.43.146'
 const info = IpInfo(ip)
 
 console.log(info)
