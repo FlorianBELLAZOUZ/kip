@@ -1,7 +1,7 @@
 Kip
 ----
 
-Get information from ip address
+Get informations from ip address like geolocation, currency, language, timezone, and more
 
 ```js
 const IpInfo = require('kip')
